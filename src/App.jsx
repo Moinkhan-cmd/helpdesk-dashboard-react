@@ -19,6 +19,7 @@ function App() {
   var [picked, setPicked] = useState(1)
   var [searchTxt, setSearchTxt] = useState('')
   var [viewIdx, setViewIdx] = useState(0)
+  var [showProps, setShowProps] = useState(true)
 
   var views = [
     { name: 'My Tickets', count: 5 },
@@ -47,9 +48,9 @@ function App() {
         <Navbar searchTxt={searchTxt} setSearchTxt={setSearchTxt} />
         <div className="middle">
           <TicketViews views={views} viewIdx={viewIdx} setViewIdx={setViewIdx} />
-          <TicketList tickets={shownTix} picked={picked} setPicked={setPicked} allTickets={allTickets} />
+          <TicketList tickets={shownTix} picked={picked} setPicked={setPicked} allTickets={allTickets} openProps={() => setShowProps(true)} />
           <TicketDetail ticket={currentTix} />
-          <TicketProperties ticket={currentTix} />
+          {showProps && <TicketProperties ticket={currentTix} closePanel={() => setShowProps(false)} />}
         </div>
       </div>
     </div>

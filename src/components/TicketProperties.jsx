@@ -1,11 +1,11 @@
 import { X, ChevronDown } from 'lucide-react'
 
-function TicketProperties({ ticket }) {
+function TicketProperties({ ticket, closePanel }) {
   return (
     <aside className="propsPanel">
       <div className="propsHead">
         <button className="statusBtn">{ticket.status}</button>
-        <X size={18} className="closeX" />
+        <X size={18} className="closeX" onClick={closePanel} />
       </div>
 
       <div className="propsBody">

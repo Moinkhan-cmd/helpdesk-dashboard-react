@@ -1,9 +1,10 @@
 import { Search } from 'lucide-react'
 
-function TicketList({ tickets, picked, setPicked, allTickets }) {
+function TicketList({ tickets, picked, setPicked, allTickets, openProps }) {
   function clickTix(t) {
     var idx = allTickets.findIndex(x => x.id == t.id)
     setPicked(idx)
+    openProps()
   }
   return (
     <div className="ticketsList">
