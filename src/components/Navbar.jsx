@@ -1,6 +1,9 @@
 import { Search, ChevronDown } from 'lucide-react'
 
-function Navbar() {
+function Navbar({ searchTxt, setSearchTxt }) {
+  function handleSearch(e) {
+    setSearchTxt(e.target.value)
+  }
   return (
     <header className="topNav">
       <div className="leftNav">
@@ -10,7 +13,7 @@ function Navbar() {
       <div className="centerNav">
         <div className="searchBox">
           <Search size={16} />
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="Search..." value={searchTxt} onChange={handleSearch} />
         </div>
       </div>
       <div className="rightNav">
